@@ -1,6 +1,5 @@
 Manifest-Version: 1.0
-Build-Jdk-Spec: 13
-Implementation-Title: P1PennyWise
-Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: perse
+Build-Jdk: 1.8.0_231
 Created-By: Maven Integration for Eclipse
 
