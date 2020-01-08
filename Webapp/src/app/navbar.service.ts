@@ -1,13 +1,22 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
+import {User} from './user';
 
 @Injectable({
   providedIn: 'root'
 })
 export class NavbarService {
 
-  constructor() { }
+  constructor(private http: HttpClient) {
+  }
 
-  logout():void{
-    
+
+  login(): Observable<User> {
+   return this.http.get('endpoint') as Observable<User>;
+  }
+
+  logout(): void {
+
   }
 }

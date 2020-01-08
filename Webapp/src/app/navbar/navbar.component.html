@@ -1,1 +1,58 @@
-<p>navbar works!</p>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <a routerLink="/homepage" class="navbar-brand h1 mr-2"><i class="fas fa-ruble-sign mr-1"></i>PennyWise</a>
+  <button class="navbar-toggler" data-toggle="collapse" (click)="isMenuCollapsed = !isMenuCollapsed">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse">
+    <ul class="navbar-nav text-light">
+      <li class="nav-item">
+        <a routerLink="/homepage" class="nav-link">Lorem</a>
+      </li>
+      <li class="nav-item">
+        <a href="" class="nav-link">Ad</a>
+      </li>
+      <li class="nav-item">
+        <a href="" class="nav-link">Ipsum</a>
+      </li>
+      <li class="nav-item">
+        <a href="" class="nav-link">Casos</a>
+      </li>
+      <li class="nav-item">
+        <a href="" class="nav-link">Dolor</a>
+      </li>
+      <li class="nav-item">
+        <a href="" class="nav-link">Valus</a>
+      </li>
+      <li class="nav-item d-inline d-md-none">
+        <button class=" btn btn-link nav-link" (click)="open(content)">Login</button>
+      </li>
+    </ul>
+  </div>
+  <button class="btn btn-primary d-none d-md-inline" (click)="open(content)">Login</button>
+</nav>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h1 class="modal-title" id="modal-login">Login</h1>
+    <button type="button" class="close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">X</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-group">
+      <label for="username">Username</label>
+      <input class="form-control" type="text" name="Username">
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+      <input class="form-control" type="password" name="Password">
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-primary" (click)="login()">Login</button>
+    <button type="button" class="btn btn-danger" (click)="logout()">Logout</button>
+  </div>
+</ng-template>
+
