@@ -6,4 +6,6 @@ export class User {
   accPassword: string;
   accFullname: string;
   bankAccount: BankAccount;
+
+  token: string;
 }

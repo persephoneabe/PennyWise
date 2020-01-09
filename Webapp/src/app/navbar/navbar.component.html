@@ -24,11 +24,15 @@
         <a href="" class="nav-link">Valus</a>
       </li>
       <li class="nav-item d-inline d-md-none">
-        <button class=" btn btn-link nav-link" (click)="open(content)">Login</button>
+        <button [hidden]="isLoggedIn" class="btn btn-link nav-link" (click)="open(content)">Login</button>
+        <!--This button will only appear if a user is logged in-->
+        <button [hidden]="!isLoggedIn" type="button" class="btn btn-danger" (click)="logout()">Logout</button>
       </li>
     </ul>
   </div>
-  <button class="btn btn-primary d-none d-md-inline" (click)="open(content)">Login</button>
+  <button [hidden]="isLoggedIn" class="btn btn-primary d-none d-md-inline" (click)="open(content)">Login</button>
+  <!--This button will only appear if a user is logged in-->
+  <button [hidden]="!isLoggedIn" type="button" class="btn btn-danger" (click)="logout()">Logout</button>
 </nav>
 
 <ng-template #content let-modal>
@@ -39,20 +43,21 @@
     </button>
   </div>
   <div class="modal-body">
-    <form>
+    <form id="loginForm" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <div class="form-group">
-      <label for="username">Username</label>
-      <input class="form-control" type="text" name="Username">
+        <label for="username">Username</label>
+        <input class="form-control" type="text" id="username" formControlName="username">
       </div>
       <div class="form-group">
         <label for="password">Password</label>
-      <input class="form-control" type="password" name="Password">
+        <input class="form-control" type="password" id="password" formControlName="password">
       </div>
     </form>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-primary" (click)="login()">Login</button>
-    <button type="button" class="btn btn-danger" (click)="logout()">Logout</button>
+    <!--in need of a registration route-->
+    <button type="submit" form="loginForm" class="btn btn-primary">Login</button>
   </div>
 </ng-template>
+
 

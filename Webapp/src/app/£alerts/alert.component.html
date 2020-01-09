@@ -1,0 +1,7 @@
+<!-- This is the HTML template for the displaying of alerts across the application. To place an alert in the application
+ use the <alert></alert> tags on the HTML template with a an id that links it to the Ts file and call the appropriate
+ service method e.g. alertService.success('display text', 'alert-1); -->
+<div *ngFor="let alert of alerts" class="alert {{cssClass(alert)}} alert-dismissible">
+  {{alert.message}}
+  <a class="close" (click)="removeAlert(alert)">X</a>
+</div>
