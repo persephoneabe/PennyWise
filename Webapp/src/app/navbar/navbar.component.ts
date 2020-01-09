@@ -6,6 +6,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {first} from 'rxjs/operators';
 
 import {AuthenticationService} from '../£services/authentication.service';
+import {AlertService} from '../£alerts';
 
 @Component({
   selector: 'app-navbar',
@@ -23,6 +24,7 @@ export class NavbarComponent implements OnInit {
 
   constructor(
     private authenticationService: AuthenticationService,
+    private alertService: AlertService,
     private modalService: NgbModal,
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
@@ -37,6 +39,8 @@ export class NavbarComponent implements OnInit {
       username: ['', Validators.required],
       password: ['', Validators.required]
     });
+
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
   get f() {
@@ -51,12 +55,17 @@ export class NavbarComponent implements OnInit {
     this.authenticationService.login(
       this.f.username.value, this.f.password.value)
       .pipe(first()).subscribe(data => {
-      this.router.navigate([this.returnUrl]);
-    });
+        this.router.navigateByUrl('/frontpage');
+        this.alertService.sucess('You have successfully logged in');
+      },
+      error => {
+        this.alertService.error('Failed to log in');
+      });
   }
 
   private logout() {
     this.authenticationService.logout();
+    this.alertService.sucess('You have successfully logged out');
   }
 
   open(content) {

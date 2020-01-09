@@ -6,7 +6,7 @@ import {Subscription} from 'rxjs';
 @Component({selector: 'alert', templateUrl: 'alert.component.html'})
 export class AlertComponent implements OnInit, OnDestroy {
   @Input() id: string;
-  alerts: Alert[] = [];
+  alert: Alert;
   subscription: Subscription;
 
   constructor(private alertService: AlertService) {
@@ -18,10 +18,10 @@ export class AlertComponent implements OnInit, OnDestroy {
       .subscribe(alert => {
         if (!alert.message) {
           // Clears out the alerts array if an empty alert is received.
-          this.alerts = [];
+          this.alert = null;
           return;
         }
-        this.alerts.push(alert);
+        this.alert = alert;
       });
   }
 
@@ -34,7 +34,7 @@ export class AlertComponent implements OnInit, OnDestroy {
 // Removes the alert that has been deselected with the "X".
   removeAlert(alert: Alert
   ) {
-    this.alerts = this.alerts.filter(x => x !== alert);
+    this.alert = null;
   }
 
 // Switches the Bootstrap class depending on what type of alert is being displayed.
@@ -42,16 +42,15 @@ export class AlertComponent implements OnInit, OnDestroy {
     if (!alert) {
       return;
     }
-
     switch (alert.type) {
       case AlertType.Success:
-        return 'alert-success';
+        return 'alert alert-success';
       case AlertType.Error:
-        return 'alert-error';
+        return 'alert alert-danger';
       case AlertType.Info:
-        return 'alert-info';
+        return 'alert alert-info';
       case AlertType.Warning:
-        return 'alert-warning';
+        return 'alert alert-warning';
     }
   }
 }

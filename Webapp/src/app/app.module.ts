@@ -14,6 +14,9 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FooterComponent } from './footer/footer.component';
 import { DictionaryComponent } from './dictionary/dictionary.component';
+import { HomepageComponent } from './homepage/homepage.component';
+import { FrontpageComponent } from './frontpage/frontpage.component';
+import { RegistrationComponent } from './registration/registration.component';
 
 
 @NgModule({
@@ -22,7 +25,10 @@ import { DictionaryComponent } from './dictionary/dictionary.component';
     NavbarComponent,
     DashboardComponent,
     FooterComponent,
-    DictionaryComponent
+    DictionaryComponent,
+    HomepageComponent,
+    FrontpageComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,

@@ -39,19 +39,19 @@ export class AlertService {
   }
 
   // Methods for specifying alert type more easily.
-  sucess(message: string, alertId: string) {
+  sucess(message: string, alertId?: string) {
     this.alert(new Alert({message, type: AlertType.Success, alertId}));
   }
 
-  error(message: string, alertId: string) {
+  error(message: string, alertId?: string) {
     this.alert(new Alert({message, type: AlertType.Error, alertId}));
   }
 
-  info(message: string, alertId: string) {
+  info(message: string, alertId?: string) {
     this.alert(new Alert({message, type: AlertType.Info, alertId}));
   }
 
-  warn(message: string, alertId: string) {
+  warn(message: string, alertId?: string) {
     this.alert(new Alert({message, type: AlertType.Warning, alertId}));
   }
 }
