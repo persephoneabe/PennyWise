@@ -1,7 +1,5 @@
 package com.pennywise.model;
 
-import java.math.BigDecimal;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -22,17 +20,17 @@ public class BankAccount {
     String bankUsername;
 	
 	@Column
-    BigDecimal bankBalance;
+    double bankBalance;
 	
 	@Column
-    BigDecimal bankPreviousBalance;
+    double bankPreviousBalance;
 
 	public BankAccount() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public BankAccount(int bankId, String bankUsername, BigDecimal bankBalance, BigDecimal bankPreviousBalance) {
+	public BankAccount(int bankId, String bankUsername, double bankBalance, double bankPreviousBalance) {
 		super();
 		this.bankId = bankId;
 		this.bankUsername = bankUsername;
@@ -56,19 +54,19 @@ public class BankAccount {
 		this.bankUsername = bankUsername;
 	}
 
-	public BigDecimal getBankBalance() {
+	public double getBankBalance() {
 		return bankBalance;
 	}
 
-	public void setBankBalance(BigDecimal bankBalance) {
+	public void setBankBalance(double bankBalance) {
 		this.bankBalance = bankBalance;
 	}
 
-	public BigDecimal getBankPreviousBalance() {
+	public double getBankPreviousBalance() {
 		return bankPreviousBalance;
 	}
 
-	public void setBankPreviousBalance(BigDecimal bankPreviousBalance) {
+	public void setBankPreviousBalance(double bankPreviousBalance) {
 		this.bankPreviousBalance = bankPreviousBalance;
 	}
 
@@ -76,9 +74,12 @@ public class BankAccount {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((bankBalance == null) ? 0 : bankBalance.hashCode());
+		long temp;
+		temp = Double.doubleToLongBits(bankBalance);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
 		result = prime * result + bankId;
-		result = prime * result + ((bankPreviousBalance == null) ? 0 : bankPreviousBalance.hashCode());
+		temp = Double.doubleToLongBits(bankPreviousBalance);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
 		result = prime * result + ((bankUsername == null) ? 0 : bankUsername.hashCode());
 		return result;
 	}
@@ -92,17 +93,11 @@ public class BankAccount {
 		if (getClass() != obj.getClass())
 			return false;
 		BankAccount other = (BankAccount) obj;
-		if (bankBalance == null) {
-			if (other.bankBalance != null)
-				return false;
-		} else if (!bankBalance.equals(other.bankBalance))
+		if (Double.doubleToLongBits(bankBalance) != Double.doubleToLongBits(other.bankBalance))
 			return false;
 		if (bankId != other.bankId)
 			return false;
-		if (bankPreviousBalance == null) {
-			if (other.bankPreviousBalance != null)
-				return false;
-		} else if (!bankPreviousBalance.equals(other.bankPreviousBalance))
+		if (Double.doubleToLongBits(bankPreviousBalance) != Double.doubleToLongBits(other.bankPreviousBalance))
 			return false;
 		if (bankUsername == null) {
 			if (other.bankUsername != null)
@@ -120,4 +115,6 @@ public class BankAccount {
 	
 	
 	
+	
 }
+	

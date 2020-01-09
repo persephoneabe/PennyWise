@@ -5,8 +5,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -15,85 +13,75 @@ public class User {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column
-	private int accId;
+	@Column(name = "accid")
+	private int accid;
 	
-	@Column
-	private String accUsername;
+	@Column(name = "accusername")
+	private String accusername;
 
-	@Column
-	private String accPassword;
+	@Column(name = "accpassword")
+	private String accpassword;
 	
-	@Column
-	private String accFullname;
+	@Column(name = "accfullname")
+	private String accfullname;
 	
-	@ManyToOne
-	@JoinColumn
-	private BankAccount bankAccount;
+//	@ManyToOne
+//	@JoinColumn
+//	private BankAccount bankAccount;
 
 	public User() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public User(int accId, String accUsername, String accPassword, String accFullname, BankAccount bankAccount) {
+	public User(int accid, String accusername, String accpassword, String accfullname) {
 		super();
-		this.accId = accId;
-		this.accUsername = accUsername;
-		this.accPassword = accPassword;
-		this.accFullname = accFullname;
-		this.bankAccount = bankAccount;
+		this.accid = accid;
+		this.accusername = accusername;
+		this.accpassword = accpassword;
+		this.accfullname = accfullname;
 	}
 
-	public int getAccId() {
-		return accId;
+	public int getAccid() {
+		return accid;
 	}
 
-	public void setAccId(int accId) {
-		this.accId = accId;
+	public void setAccid(int accid) {
+		this.accid = accid;
 	}
 
-	public String getAccUsername() {
-		return accUsername;
+	public String getAccusername() {
+		return accusername;
 	}
 
-	public void setAccUsername(String accUsername) {
-		this.accUsername = accUsername;
+	public void setAccusername(String accusername) {
+		this.accusername = accusername;
 	}
 
-	public String getAccPassword() {
-		return accPassword;
+	public String getaccpassword() {
+		return accpassword;
 	}
 
-	public void setAccPassword(String accPassword) {
-		this.accPassword = accPassword;
+	public void setaccpassword(String accpassword) {
+		this.accpassword = accpassword;
 	}
 
-	public String getAccFullname() {
-		return accFullname;
+	public String getAccfullname() {
+		return accfullname;
 	}
 
-	public void setAccFullname(String accFullname) {
-		this.accFullname = accFullname;
-	}
-
-	public BankAccount getBankAccount() {
-		return bankAccount;
-	}
-
-	public void setBankAccount(BankAccount bankAccount) {
-		this.bankAccount = bankAccount;
+	public void setAccfullname(String accfullname) {
+		this.accfullname = accfullname;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((accFullname == null) ? 0 : accFullname.hashCode());
-		result = prime * result + accId;
-		result = prime * result + ((accPassword == null) ? 0 : accPassword.hashCode());
-		result = prime * result + ((accUsername == null) ? 0 : accUsername.hashCode());
-		result = prime * result + ((bankAccount == null) ? 0 : bankAccount.hashCode());
+		result = prime * result + ((accpassword == null) ? 0 : accpassword.hashCode());
+		result = prime * result + ((accfullname == null) ? 0 : accfullname.hashCode());
+		result = prime * result + accid;
+		result = prime * result + ((accusername == null) ? 0 : accusername.hashCode());
 		return result;
 	}
 
@@ -106,37 +94,33 @@ public class User {
 		if (getClass() != obj.getClass())
 			return false;
 		User other = (User) obj;
-		if (accFullname == null) {
-			if (other.accFullname != null)
+		if (accpassword == null) {
+			if (other.accpassword != null)
 				return false;
-		} else if (!accFullname.equals(other.accFullname))
+		} else if (!accpassword.equals(other.accpassword))
 			return false;
-		if (accId != other.accId)
-			return false;
-		if (accPassword == null) {
-			if (other.accPassword != null)
+		if (accfullname == null) {
+			if (other.accfullname != null)
 				return false;
-		} else if (!accPassword.equals(other.accPassword))
+		} else if (!accfullname.equals(other.accfullname))
 			return false;
-		if (accUsername == null) {
-			if (other.accUsername != null)
-				return false;
-		} else if (!accUsername.equals(other.accUsername))
+		if (accid != other.accid)
 			return false;
-		if (bankAccount == null) {
-			if (other.bankAccount != null)
+		if (accusername == null) {
+			if (other.accusername != null)
 				return false;
-		} else if (!bankAccount.equals(other.bankAccount))
+		} else if (!accusername.equals(other.accusername))
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "User [accId=" + accId + ", accUsername=" + accUsername + ", accPassword=" + accPassword
-				+ ", accFullname=" + accFullname + ", bankAccount=" + bankAccount + "]";
+		return "User [accid=" + accid + ", accusername=" + accusername + ", accpassword=" + accpassword
+				+ ", accfullname=" + accfullname + "]";
 	}
 
+	
 	
 	
 	

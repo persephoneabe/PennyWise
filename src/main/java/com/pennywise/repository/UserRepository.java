@@ -11,10 +11,10 @@ import com.pennywise.model.User;
 public interface UserRepository extends JpaRepository<User, Integer>{
 
 	public List<User> findAll();
-	public List<User> findAllByaccId(int id);
+	public List<User> findAllByAccid(int id);
 	
-	User findByaccId(int id);
-	User findByaccUsername(String name);
+	public User findByAccid(int id);
+	public User findByAccusername(String name);
 	<U extends User> U save(User u);
 	
 }

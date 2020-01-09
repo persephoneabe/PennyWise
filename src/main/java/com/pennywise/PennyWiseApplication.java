@@ -8,6 +8,7 @@ public class PennyWiseApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(PennyWiseApplication.class, args);
+		
 	}
 
 }

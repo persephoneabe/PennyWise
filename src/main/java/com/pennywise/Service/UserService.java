@@ -15,9 +15,6 @@ public class UserService {
 	@Autowired
 	UserRepository userRepository;
 	
-	public void setUserRepository(UserRepository userRepository) {
-	this.userRepository = userRepository;
-}
 	
 	
 	public void insertUser(User u) {
@@ -29,15 +26,15 @@ public class UserService {
 	}
 	
 	public List<User> getAllUsersByID(int id){
-		return this.userRepository.findAllByaccId(id);
+		return this.userRepository.findAllByAccid(id);
 	}
 	
 	public User getUserByID(int id) {
-		return this.userRepository.findByaccId(id);
+		return this.userRepository.findByAccid(id);
 	}
 	
 	public User getUserByUsername(String name) {
-		return this.userRepository.findByaccUsername(name);
+		return this.userRepository.findByAccusername(name);
 	}
 	
 }
