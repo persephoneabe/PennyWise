@@ -26,15 +26,15 @@ public class UserService {
 	}
 	
 	public List<User> getAllUsersByID(int id){
-		return this.userRepository.findAllByAccid(id);
+		return this.userRepository.findAllByUserid(id);
 	}
 	
 	public User getUserByID(int id) {
-		return this.userRepository.findByAccid(id);
+		return this.userRepository.findByUserid(id);
 	}
 	
 	public User getUserByUsername(String name) {
-		return this.userRepository.findByAccusername(name);
+		return this.userRepository.findByUsername(name);
 	}
 	
 }

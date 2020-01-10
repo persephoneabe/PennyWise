@@ -13,17 +13,17 @@ public class User {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name = "accid")
-	private int accid;
+	@Column(name = "userid")
+	private int userid;
 	
-	@Column(name = "accusername")
-	private String accusername;
+	@Column(name = "username")
+	private String username;
 
-	@Column(name = "accpassword")
-	private String accpassword;
+	@Column(name = "userpassword")
+	private String userpassword;
 	
-	@Column(name = "accfullname")
-	private String accfullname;
+	@Column(name = "fullname")
+	private String fullname;
 	
 //	@ManyToOne
 //	@JoinColumn
@@ -34,54 +34,54 @@ public class User {
 		// TODO Auto-generated constructor stub
 	}
 
-	public User(int accid, String accusername, String accpassword, String accfullname) {
+	public User(int userid, String username, String userpassword, String fullname) {
 		super();
-		this.accid = accid;
-		this.accusername = accusername;
-		this.accpassword = accpassword;
-		this.accfullname = accfullname;
+		this.userid = userid;
+		this.username = username;
+		this.userpassword = userpassword;
+		this.fullname = fullname;
 	}
 
-	public int getAccid() {
-		return accid;
+	public int getUserid() {
+		return userid;
 	}
 
-	public void setAccid(int accid) {
-		this.accid = accid;
+	public void setUserid(int userid) {
+		this.userid = userid;
 	}
 
-	public String getAccusername() {
-		return accusername;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setAccusername(String accusername) {
-		this.accusername = accusername;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
-	public String getaccpassword() {
-		return accpassword;
+	public String getUserpassword() {
+		return userpassword;
 	}
 
-	public void setaccpassword(String accpassword) {
-		this.accpassword = accpassword;
+	public void setUserpassword(String userpassword) {
+		this.userpassword = userpassword;
 	}
 
-	public String getAccfullname() {
-		return accfullname;
+	public String getfullname() {
+		return fullname;
 	}
 
-	public void setAccfullname(String accfullname) {
-		this.accfullname = accfullname;
+	public void setfullname(String fullname) {
+		this.fullname = fullname;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((accpassword == null) ? 0 : accpassword.hashCode());
-		result = prime * result + ((accfullname == null) ? 0 : accfullname.hashCode());
-		result = prime * result + accid;
-		result = prime * result + ((accusername == null) ? 0 : accusername.hashCode());
+		result = prime * result + ((fullname == null) ? 0 : fullname.hashCode());
+		result = prime * result + userid;
+		result = prime * result + ((username == null) ? 0 : username.hashCode());
+		result = prime * result + ((userpassword == null) ? 0 : userpassword.hashCode());
 		return result;
 	}
 
@@ -94,30 +94,30 @@ public class User {
 		if (getClass() != obj.getClass())
 			return false;
 		User other = (User) obj;
-		if (accpassword == null) {
-			if (other.accpassword != null)
+		if (fullname == null) {
+			if (other.fullname != null)
 				return false;
-		} else if (!accpassword.equals(other.accpassword))
+		} else if (!fullname.equals(other.fullname))
 			return false;
-		if (accfullname == null) {
-			if (other.accfullname != null)
+		if (userid != other.userid)
+			return false;
+		if (username == null) {
+			if (other.username != null)
 				return false;
-		} else if (!accfullname.equals(other.accfullname))
+		} else if (!username.equals(other.username))
 			return false;
-		if (accid != other.accid)
-			return false;
-		if (accusername == null) {
-			if (other.accusername != null)
+		if (userpassword == null) {
+			if (other.userpassword != null)
 				return false;
-		} else if (!accusername.equals(other.accusername))
+		} else if (!userpassword.equals(other.userpassword))
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "User [accid=" + accid + ", accusername=" + accusername + ", accpassword=" + accpassword
-				+ ", accfullname=" + accfullname + "]";
+		return "User [userid=" + userid + ", username=" + username + ", userpassword=" + userpassword
+				+ ", fullname=" + fullname + "]";
 	}
 
 	

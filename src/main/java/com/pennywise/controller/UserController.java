@@ -22,10 +22,10 @@ public class UserController {
 		UserController.userService = userService;
 	}
 	
-	@RequestMapping(value="/home", method=RequestMethod.GET)
-	public String index() {
-		return "index";
-	}
+//	@RequestMapping(value="/home", method=RequestMethod.GET)
+//	public String index() {
+//		return "index";
+//	}
 	
 	@RequestMapping(value="/all", produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<User> getAllUser(){
