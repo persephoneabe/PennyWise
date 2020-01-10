@@ -5,69 +5,84 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name= "BankAccount")
+@Table(name= "bankaccount")
 public class BankAccount {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column
-	int bankId;
+	@Column(name = "bankid")
+	int bankid;
 	
-	@Column
-    String bankUsername;
+	@Column(name = "bankusername")
+    String bankusername;
 	
-	@Column
-    double bankBalance;
+	@Column(name = "bankbalance")
+    double bankbalance;
 	
-	@Column
-    double bankPreviousBalance;
+	@Column(name = "bankpreviousbalance")
+    double bankpreviousbalance;
+	
+	@ManyToOne
+	@JoinColumn(name = "accid")
+	private User user;
 
 	public BankAccount() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public BankAccount(int bankId, String bankUsername, double bankBalance, double bankPreviousBalance) {
+	public BankAccount(int bankid, String bankusername, double bankbalance, double bankpreviousbalance, User user) {
 		super();
-		this.bankId = bankId;
-		this.bankUsername = bankUsername;
-		this.bankBalance = bankBalance;
-		this.bankPreviousBalance = bankPreviousBalance;
+		this.bankid = bankid;
+		this.bankusername = bankusername;
+		this.bankbalance = bankbalance;
+		this.bankpreviousbalance = bankpreviousbalance;
+		this.user = user;
 	}
 
-	public int getBankId() {
-		return bankId;
+	public int getBankid() {
+		return bankid;
 	}
 
-	public void setBankId(int bankId) {
-		this.bankId = bankId;
+	public void setBankid(int bankid) {
+		this.bankid = bankid;
 	}
 
-	public String getBankUsername() {
-		return bankUsername;
+	public String getBankusername() {
+		return bankusername;
 	}
 
-	public void setBankUsername(String bankUsername) {
-		this.bankUsername = bankUsername;
+	public void setBankusername(String bankusername) {
+		this.bankusername = bankusername;
 	}
 
-	public double getBankBalance() {
-		return bankBalance;
+	public double getBankbalance() {
+		return bankbalance;
 	}
 
-	public void setBankBalance(double bankBalance) {
-		this.bankBalance = bankBalance;
+	public void setBankbalance(double bankbalance) {
+		this.bankbalance = bankbalance;
 	}
 
-	public double getBankPreviousBalance() {
-		return bankPreviousBalance;
+	public double getBankpreviousbalance() {
+		return bankpreviousbalance;
 	}
 
-	public void setBankPreviousBalance(double bankPreviousBalance) {
-		this.bankPreviousBalance = bankPreviousBalance;
+	public void setBankpreviousbalance(double bankpreviousbalance) {
+		this.bankpreviousbalance = bankpreviousbalance;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	@Override
@@ -75,12 +90,13 @@ public class BankAccount {
 		final int prime = 31;
 		int result = 1;
 		long temp;
-		temp = Double.doubleToLongBits(bankBalance);
+		temp = Double.doubleToLongBits(bankbalance);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
-		result = prime * result + bankId;
-		temp = Double.doubleToLongBits(bankPreviousBalance);
+		result = prime * result + bankid;
+		temp = Double.doubleToLongBits(bankpreviousbalance);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
-		result = prime * result + ((bankUsername == null) ? 0 : bankUsername.hashCode());
+		result = prime * result + ((bankusername == null) ? 0 : bankusername.hashCode());
+		result = prime * result + ((user == null) ? 0 : user.hashCode());
 		return result;
 	}
 
@@ -93,27 +109,31 @@ public class BankAccount {
 		if (getClass() != obj.getClass())
 			return false;
 		BankAccount other = (BankAccount) obj;
-		if (Double.doubleToLongBits(bankBalance) != Double.doubleToLongBits(other.bankBalance))
+		if (Double.doubleToLongBits(bankbalance) != Double.doubleToLongBits(other.bankbalance))
 			return false;
-		if (bankId != other.bankId)
+		if (bankid != other.bankid)
 			return false;
-		if (Double.doubleToLongBits(bankPreviousBalance) != Double.doubleToLongBits(other.bankPreviousBalance))
+		if (Double.doubleToLongBits(bankpreviousbalance) != Double.doubleToLongBits(other.bankpreviousbalance))
 			return false;
-		if (bankUsername == null) {
-			if (other.bankUsername != null)
+		if (bankusername == null) {
+			if (other.bankusername != null)
 				return false;
-		} else if (!bankUsername.equals(other.bankUsername))
+		} else if (!bankusername.equals(other.bankusername))
+			return false;
+		if (user == null) {
+			if (other.user != null)
+				return false;
+		} else if (!user.equals(other.user))
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "BankAccount [bankId=" + bankId + ", bankUsername=" + bankUsername + ", bankBalance=" + bankBalance
-				+ ", bankPreviousBalance=" + bankPreviousBalance + "]";
+		return "BankAccount [bankid=" + bankid + ", bankusername=" + bankusername + ", bankbalance=" + bankbalance
+				+ ", bankpreviousbalance=" + bankpreviousbalance + ", user=" + user + "]";
 	}
-	
-	
+
 	
 	
 }

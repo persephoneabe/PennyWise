@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.pennywise.model.BankAccount;
+import com.pennywise.model.User;
 import com.pennywise.repository.BankAccountRepository;
 
 @Service(value ="bankAccountService")
@@ -14,9 +15,7 @@ public class BankAccountService {
 	@Autowired
 	BankAccountRepository bankAccountRepository;
 	
-	public void setBankAccountRepository(BankAccountRepository bankAccountRepository) {
-		this.bankAccountRepository = bankAccountRepository;
-	}
+	
 	
 	public void insertBankAccount(BankAccount b) {
 		this.bankAccountRepository.save(b);
@@ -27,15 +26,19 @@ public class BankAccountService {
 	}
 	
 	public List<BankAccount> getAllBankAccountsByID(int id){
-		return this.bankAccountRepository.findAllBybankId(id);
+		return this.bankAccountRepository.findAllByBankid(id);
+	}
+	
+	public List<BankAccount> getAllBankAccountsByUser(User user){
+		return this.bankAccountRepository.findAllByUser(user);
 	}
 	
 	public BankAccount getBankAccountByID(int id) {
-		return this.bankAccountRepository.findBybankId(id);
+		return this.bankAccountRepository.findByBankid(id);
 	}
 	
 	public BankAccount getBankAccountByUserName(String name) {
-		return this.bankAccountRepository.findBybankUsername(name);
+		return this.bankAccountRepository.findByBankusername(name);
 	}
 	
 }
