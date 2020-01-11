@@ -1,10 +1,10 @@
-package com.pennywise;
+package com.canteloupe;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class P1PennyWiseApplicationTests {
+class CanteloupeApplicationTests {
 
 	@Test
 	void contextLoads() {
