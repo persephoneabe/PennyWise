@@ -11,6 +11,7 @@ import com.canteloupe.web.HBSessionFactory;
 
 public class UserHibernate {
 
+	@SuppressWarnings("unchecked")
 	List<User> getAllUsers(){
 		
 		List<User> us = null;
