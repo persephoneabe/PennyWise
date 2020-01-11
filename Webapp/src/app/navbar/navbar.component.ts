@@ -48,10 +48,13 @@ export class NavbarComponent implements OnInit {
   }
 
   onSubmit() {
+
     this.submitted = true;
     if (this.loginForm.invalid) {
+      this.alertService.error('You must enter a username and password', 'a-1');
       return;
     }
+    this.modalService.dismissAll();
     this.authenticationService.login(
       this.f.username.value, this.f.password.value)
       .pipe(first()).subscribe(data => {

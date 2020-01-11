@@ -1,11 +1,12 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
 import {BehaviorSubject, config, Observable} from 'rxjs';
+import {User} from '../£models/user';
+import {HttpClient} from '@angular/common/http';
 import {map} from 'rxjs/operators';
 
-import {User} from '../£models/user';
-
-@Injectable({providedIn: 'root'})
+@Injectable({
+  providedIn: 'root'
+})
 export class AuthenticationService {
   private currentUserSubject: BehaviorSubject<User>;
   public currentUser: Observable<User>;
@@ -20,7 +21,7 @@ export class AuthenticationService {
   }
 
   login(username, password) {
-    return this.http.post<any>(`${config['apiUrl']}/users/authentication`, {username, password}).pipe(map(user => {
+    return this.http.post<any>('http://localhost:8080/login', {username, password}).pipe(map(user => {
       // Storing user token in local storage to retain user session between page refreshing
       localStorage.setItem('currentUser', JSON.stringify(user));
       this.currentUserSubject.next(user);

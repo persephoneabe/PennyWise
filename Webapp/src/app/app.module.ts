@@ -17,6 +17,9 @@ import { DictionaryComponent } from './dictionary/dictionary.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { FrontpageComponent } from './frontpage/frontpage.component';
 import { RegistrationComponent } from './registration/registration.component';
+import { DrinksearchComponent } from './drinksearch/drinksearch.component';
+import { UserdrinksComponent } from './userdrinks/userdrinks.component';
+import { IndividualdrinkComponent } from './individualdrink/individualdrink.component';
 
 
 @NgModule({
@@ -28,7 +31,10 @@ import { RegistrationComponent } from './registration/registration.component';
     DictionaryComponent,
     HomepageComponent,
     FrontpageComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    DrinksearchComponent,
+    UserdrinksComponent,
+    IndividualdrinkComponent
   ],
   imports: [
     BrowserModule,
