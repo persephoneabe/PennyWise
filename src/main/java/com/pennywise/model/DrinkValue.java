@@ -6,6 +6,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class DrinkValue {
 	
+	@JsonProperty("idDrink")
+	String idDrink;
+	
 	@JsonProperty("strDrink")
 	String strDrink;
 	
