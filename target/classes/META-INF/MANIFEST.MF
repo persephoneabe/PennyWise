@@ -1,6 +1,11 @@
 Manifest-Version: 1.0
+<<<<<<< HEAD
 Build-Jdk-Spec: 13
 Implementation-Title: Canteloupe
+=======
+Implementation-Title: P1PennyWise
+>>>>>>> 62ca941f7e0f0d95b289d655ece277d461994a12
 Implementation-Version: 0.0.1-SNAPSHOT
+Build-Jdk-Spec: 1.8
 Created-By: Maven Integration for Eclipse
 
