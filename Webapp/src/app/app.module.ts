@@ -13,7 +13,6 @@ import {AlertModule} from './£alerts';
 import { NavbarComponent } from './navbar/navbar.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FooterComponent } from './footer/footer.component';
-import { DictionaryComponent } from './dictionary/dictionary.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { FrontpageComponent } from './frontpage/frontpage.component';
 import { RegistrationComponent } from './registration/registration.component';
@@ -28,7 +27,6 @@ import { IndividualdrinkComponent } from './individualdrink/individualdrink.comp
     NavbarComponent,
     DashboardComponent,
     FooterComponent,
-    DictionaryComponent,
     HomepageComponent,
     FrontpageComponent,
     RegistrationComponent,

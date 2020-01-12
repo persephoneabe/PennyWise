@@ -20,7 +20,6 @@ export class NavbarComponent implements OnInit {
   loginForm: FormGroup;
   isLoggedIn = false;
   submitted = false;
-  returnUrl: string;
 
   constructor(
     private authenticationService: AuthenticationService,
@@ -39,16 +38,14 @@ export class NavbarComponent implements OnInit {
       username: ['', Validators.required],
       password: ['', Validators.required]
     });
-
-    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
+  // Getter for form fields
   get f() {
     return this.loginForm.controls;
   }
 
   onSubmit() {
-
     this.submitted = true;
     if (this.loginForm.invalid) {
       this.alertService.error('You must enter a username and password', 'a-1');
@@ -88,5 +85,4 @@ export class NavbarComponent implements OnInit {
       return `with: ${reason}`;
     }
   }
-
 }
