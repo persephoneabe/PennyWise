@@ -1,5 +1,5 @@
 export class Drink {
-  idDrink: number;
+  idDrink: string;
   strDrink: string;
   strCategory: string;
   strAlcoholic: string;
