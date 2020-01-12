@@ -20,7 +20,7 @@ export class AuthenticationService {
   }
 
   login(username, password) {
-    return this.http.post<any>(`${config['apiUrl']}/users/authentication`, {username, password}).pipe(map(user => {
+    return this.http.post<any>('http://localhost:8080/login', {username, password}).pipe(map(user => {
       // Storing user token in local storage to retain user session between page refreshing
       localStorage.setItem('currentUser', JSON.stringify(user));
       this.currentUserSubject.next(user);

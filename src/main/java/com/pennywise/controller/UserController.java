@@ -4,11 +4,13 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.pennywise.Service.UserService;
+import com.pennywise.model.Drinks;
 import com.pennywise.model.User;
 
 @RestController(value = "userController")
@@ -31,5 +33,11 @@ public class UserController {
 	public List<User> getAllUser(){
 		return UserController.userService.getAllUsers();
 	}
+	
+	@RequestMapping(value="/name/{name}")
+	public User getByName(@PathVariable String name){
+		return UserController.userService.getUserByUsername(name);
+	}
+
 
 }
