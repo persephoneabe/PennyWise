@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-import { Injectable} from '@angular/core';
-import  {HttpRequest, HttpResponse, HttpHandler, HttpEvent, HttpInterceptor} from '@angular/common/http';
-=======
 import {Injectable} from '@angular/core';
 import {HttpRequest, HttpResponse, HttpHandler, HttpEvent, HttpInterceptor, HTTP_INTERCEPTORS} from '@angular/common/http';
 import {Observable, of, throwError} from 'rxjs';
@@ -111,4 +107,3 @@ export const fakeBackendProvider = {
   useClass: FakeBackendInterceptor,
   multi: true
 };
->>>>>>> 62ca941f7e0f0d95b289d655ece277d461994a12

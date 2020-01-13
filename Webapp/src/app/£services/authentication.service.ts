@@ -34,11 +34,8 @@ export class AuthenticationService {
     localStorage.remoeItem('currentUser');
     this.currentUserSubject.next(null);
   }
-<<<<<<< HEAD
-=======
 
   register(fullname, username, password) {
     return this.http.post('http://localhost:8080/register', {fullname, username, password});
   }
->>>>>>> 62ca941f7e0f0d95b289d655ece277d461994a12
 }

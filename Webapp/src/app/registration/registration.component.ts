@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-import { Component, OnInit } from '@angular/core';
-=======
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
@@ -8,22 +5,12 @@ import {AuthenticationService} from '../£services/authentication.service';
 import {AlertService} from '../£alerts';
 import {first} from 'rxjs/operators';
 
->>>>>>> 62ca941f7e0f0d95b289d655ece277d461994a12
 
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
   styleUrls: ['./registration.component.css']
 })
-<<<<<<< HEAD
-export class RegistrationComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
-=======
 
 @Component({templateUrl: 'registration.component.html'})
 export class RegistrationComponent implements OnInit {
@@ -76,5 +63,4 @@ export class RegistrationComponent implements OnInit {
         });
     }
   }
->>>>>>> 62ca941f7e0f0d95b289d655ece277d461994a12
 }
