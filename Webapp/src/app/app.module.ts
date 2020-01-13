@@ -19,6 +19,9 @@ import { RegistrationComponent } from './registration/registration.component';
 import { DrinksearchComponent } from './drinksearch/drinksearch.component';
 import { UserdrinksComponent } from './userdrinks/userdrinks.component';
 import { IndividualdrinkComponent } from './individualdrink/individualdrink.component';
+import { AlcoholComponent } from './alcohol/alcohol.component';
+import { GlassComponent } from './glass/glass.component';
+import { CategoryComponent } from './category/category.component';
 
 
 @NgModule({
@@ -32,7 +35,10 @@ import { IndividualdrinkComponent } from './individualdrink/individualdrink.comp
     RegistrationComponent,
     DrinksearchComponent,
     UserdrinksComponent,
-    IndividualdrinkComponent
+    IndividualdrinkComponent,
+    AlcoholComponent,
+    GlassComponent,
+    CategoryComponent
   ],
   imports: [
     BrowserModule,
