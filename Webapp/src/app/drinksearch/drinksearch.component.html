@@ -6,10 +6,9 @@
 </div>
 <div class="container">
   <div class="row mx-5 my-5 text-center">
-    <div *ngFor="let drink of drinks.drinks" class="col-md-6 col-lg-4 col-xl-3">
+    <div *ngFor="let drink of drinks" class="col-md-6 col-lg-4 col-xl-3">
       <img width="100%" src="{{drink.strDrinkThumb}}" alt="{{drink.strDrink}}.jpg">
       <a routerLink="">{{drink.strDrink}}</a>
       </div>
   </div>
 </div>
-

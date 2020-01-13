@@ -2,8 +2,6 @@ import {Injectable} from '@angular/core';
 import {Observable, of} from 'rxjs';
 import {Drink} from '../£models/drink';
 import {HttpClient} from '@angular/common/http';
-import {catchError, tap} from 'rxjs/operators';
-import {subscribeTo} from 'rxjs/internal-compatibility';
 
 @Injectable({
   providedIn: 'root'
@@ -25,15 +23,15 @@ export class DrinksService {
 
   // Gets all drinks by a specific ingredient
   getDrinksByIngredient(ingredient: string): Observable<Drink[]> {
-    return this.http.get<Drink[]>(`http://localhost:8080/drink/search/ingredient/${ingredient}`);
+    return this.http.get<Drink[]>(`http://localhost:8080/drink/ingredient/${ingredient}`);
   }
 
   // Gets all the drinks based on whether they have alcohol in them or not
   getDrinksByAlchohol(alchoholic: boolean): Observable<Drink[]> {
     if (alchoholic) {
-      return this.http.get<Drink[]>(`http://localhost:8080/drink/search/search/alcoholic`);
+      return this.http.get<Drink[]>(`http://localhost:8080/drink/search/alcoholic`);
     } else if (!alchoholic) {
-      return this.http.get<Drink[]>(`http://localhost:8080/drink/search/search/nonalcoholic`);
+      return this.http.get<Drink[]>(`http://localhost:8080/drink/search/nonalcoholic`);
     }
   }
 

@@ -20,6 +20,5 @@ export class DrinksearchComponent {
     this.drinksService.searchDrinks(this.input).subscribe(data => {
       this.drinks = data;
     });
-    console.log(this.drinks);
   }
 }

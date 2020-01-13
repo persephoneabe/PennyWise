@@ -1,0 +1,14 @@
+<div class="container">
+  <div *ngIf="showlist" class="row mx-5 my-5 text-center">
+    <div *ngFor="let Glass of Glasses" class="col-md-6 col-lg-4 col-xl-3">
+      <a (click)="select(Glass)">{{Glass}}</a>
+    </div>
+  </div>
+
+  <div *ngIf="Glass" class="row mx-5 my-5 text-center">
+    <div *ngFor="let drink of drinks.drinks" class="col-md-6 col-lg-4 col-xl-3">
+      <img width="100%" src="{{drink.strDrinkThumb}}" alt="{{drink.strDrink}}.jpg">
+      <a routerLink="">{{drink.strDrink}}</a>
+    </div>
+  </div>
+</div>

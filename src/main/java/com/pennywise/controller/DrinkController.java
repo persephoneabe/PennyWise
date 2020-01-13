@@ -86,7 +86,7 @@ public class DrinkController {
 	@RequestMapping(value="/ingredient/{name}")
 	public Ingredient getByIngredient(@PathVariable String name){
 		Ingredient retrieveIngredientd = DrinkController.restTemplate.getForObject(
-				"https://www.thecocktaildb.com/api/json/v1/1/search.php?i=" + name,
+				"https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=" + name,
 				Ingredient.class);
 		return retrieveIngredientd;
 	}
