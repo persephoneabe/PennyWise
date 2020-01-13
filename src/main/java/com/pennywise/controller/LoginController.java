@@ -1,9 +1,10 @@
 package com.pennywise.controller;
 
 
-import org.springframework.http.MediaType;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,32 +16,41 @@ import com.pennywise.model.User;
 @CrossOrigin
 public class LoginController {
 	
-	UserService userService = new UserService(); 
-	User user = null;
+	private static UserService userService;
+	
+	@Autowired
+	public void setUserService(UserService userService) {
+		LoginController.userService = userService;
+	}
+	static User user = new User();
 
 	
-	@PostMapping(value="/login", produces=MediaType.APPLICATION_JSON_VALUE)
-	public User getLogin(@RequestParam("username") String username, @RequestParam("password") String password) {
-			
+	@RequestMapping(value = "/login",method = RequestMethod.POST)
+	public User getLogin(@RequestParam("username") String username,@RequestParam("password") String  password) {
+		
+		user = LoginController.userService.getUserByUsername(username);
+		
+		return user;
+		
+		
 		//check if user name is null
-		if(username.equals(null)) {
-			System.out.println(username + "is null");
-			return null;
-		}else {
+		//if(username.equals(null)) {
+		//	System.out.println(username + "is null");
+		//	return null;
+		//}else {
 		
 			//search database by username from givin username
-			user = userService.getUserByUsername(username);
-			
-			
+			//return LoginController.userService.getUserByUsername(username);
+		
 				//if password the password matches return user back to angular
-				if(user.getUserpassword().equals(password)) {
-					return user;
-					
-				}else { //if password doesn't match return null
-					System.out.println("password is null");
-					return null;
-				}
-			}
+//				if(user.getUserpassword().equals(password)) {
+//					return user;
+//					
+//				}else { //if password doesn't match return null
+//					System.out.println("password is null");
+//					return null;
+//				}
+//			}
 	
 		}
 	

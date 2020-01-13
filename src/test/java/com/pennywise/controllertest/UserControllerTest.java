@@ -15,8 +15,8 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
-import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
@@ -28,11 +28,11 @@ import com.pennywise.model.User;
 
 
 
-@ContextConfiguration(locations="classpath:testContext.xml")
+//@ContextConfiguration(locations="classpath:testContext.xml")
 @WebAppConfiguration
-
 @RunWith(SpringJUnit4ClassRunner.class)
-public class DrinkControllerTest {
+@SpringBootTest
+public class UserControllerTest {
 	
 	//make a mock of user service
 	@Mock
@@ -66,6 +66,7 @@ public class DrinkControllerTest {
 	
 	}
 	
+	
 	@Test
 	public void testGetAllUsers() {
 		Mockito.when(userservice.getAllUsers()).thenReturn(user);
@@ -75,9 +76,10 @@ public class DrinkControllerTest {
 			 * We are manually constructing a request and specifying what should happen
 			 * when such a request is made.
 			 */
-			mockMvc.perform(get("/all").contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
+			mockMvc.perform(get("/user/all").contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
 			.andExpect(status().isOk()).andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
 			.andDo(print()).andReturn();
+			
 		}catch(Exception e) {
 			e.printStackTrace();
 		}

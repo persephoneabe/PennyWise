@@ -17,7 +17,7 @@ import com.pennywise.model.User;
 @RequestMapping(value = "/user")
 public class UserController {
 	
-	private static UserService userService;
+	static UserService userService;
 	
 	@Autowired
 	public void setUserService(UserService userService) {
@@ -34,7 +34,7 @@ public class UserController {
 		return UserController.userService.getAllUsers();
 	}
 	
-	@RequestMapping(value="/name/{name}")
+	@RequestMapping(value="/name/{name}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public User getByName(@PathVariable String name){
 		return UserController.userService.getUserByUsername(name);
 	}

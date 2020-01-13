@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {BehaviorSubject, config, Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 
@@ -20,7 +20,13 @@ export class AuthenticationService {
   }
 
   login(username, password) {
-    return this.http.post<any>('http://localhost:8080/login', {username, password}).pipe(map(user => {
+    const headers = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/x-www-form-urlencoded',
+      })
+    };
+    const body = `username=${username}&password=${password}`;
+    return this.http.post<any>('http://localhost:8080/login', body, headers).pipe(map(user => {
       // Storing user token in local storage to retain user session between page refreshing
       localStorage.setItem('currentUser', JSON.stringify(user));
       this.currentUserSubject.next(user);

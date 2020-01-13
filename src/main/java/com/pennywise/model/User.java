@@ -10,24 +10,24 @@ import javax.persistence.Table;
 @Entity
 @Table(name="usertable")
 public class User {
-	
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name = "userid")
 	private int userid;
-	
+
 	@Column(name = "username")
 	private String username;
 
 	@Column(name = "userpassword")
 	private String userpassword;
-	
+
 	@Column(name = "fullname")
 	private String fullname;
-	
-//	@ManyToOne
-//	@JoinColumn
-//	private BankAccount bankAccount;
+
+	//	@ManyToOne
+	//	@JoinColumn
+	//	private BankAccount bankAccount;
 
 	public User() {
 		super();
@@ -120,8 +120,8 @@ public class User {
 				+ ", fullname=" + fullname + "]";
 	}
 
-	
-	
-	
-	
+
+
+
+
 }
