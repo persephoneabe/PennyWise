@@ -5,6 +5,7 @@ import {FrontpageComponent} from './frontpage/frontpage.component';
 import {RegistrationComponent} from './registration/registration.component';
 import {DrinksearchComponent} from './drinksearch/drinksearch.component';
 import {UserdrinksComponent} from './userdrinks/userdrinks.component';
+import { IndividualdrinkComponent } from './individualdrink/individualdrink.component';
 
 
 const routes: Routes = [
@@ -13,6 +14,7 @@ const routes: Routes = [
   {path: 'frontpage', component: FrontpageComponent},
   {path: 'registration', component: RegistrationComponent},
   {path: 'search', component: DrinksearchComponent},
+  {path: 'singles', component: IndividualdrinkComponent},
   {path: 'favourites', component: UserdrinksComponent},
   {path: '**', redirectTo: '/frontpage', pathMatch: 'full'}
 ];

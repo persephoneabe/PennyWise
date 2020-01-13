@@ -1,1 +1,23 @@
 <p>individualdrink works!</p>
+<div class="container">
+    <div>
+      <div *ngFor="let drink of drinks.drinks">
+        <ul>
+            <li><h4>{{drink.idDrink}}</h4></li>
+            <li><h3>{{drink.strDrink}}</h3></li>
+            <li><h4>{{drink.strDrinkThumb}}</h4></li>
+            <li><h4>{{drink.strCategory}}</h4></li>
+            <li><h5>{{drink.strAlcoholic}}</h5></li>
+            <li><h5>{{drink.strGlass}}</h5></li>
+            <li><h5>{{drink.strInstructions}}</h5></li>
+            <li><h5>{{drink.strIngredient1}}</h5></li>
+            <li><h5>{{drink.strIngredient2}}</h5></li>
+            <li><h5>{{drink.strIngredient3}}</h5></li>
+            <li><h5>{{drink.strIngredient4}}</h5></li>
+            <li><h5>{{drink.strIngredient5}}</h5></li>
+            <li><h5>{{drink.strIngredient6}}</h5></li>
+        </ul>
+        <!-- <a routerLink="">{{drink.strDrink}}</a> -->
+        </div>
+    </div>
+  </div>

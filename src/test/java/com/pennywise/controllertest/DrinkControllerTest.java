@@ -15,24 +15,23 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import org.springframework.web.client.RestTemplate;
 
+import com.pennywise.service.UserService;
 import com.pennywise.controller.UserController;
 import com.pennywise.model.User;
-import com.pennywise.service.UserService;
 
-//@ContextConfiguration(locations="classpath:testContext.xml")
+
+
+@ContextConfiguration(locations="classpath:testContext.xml")
 @WebAppConfiguration
+
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringBootTest
 public class DrinkControllerTest {
 	
 	//make a mock of user service
@@ -42,15 +41,13 @@ public class DrinkControllerTest {
 	//make a mock of the user controller
 	@InjectMocks
 	private UserController userController;
-	
-	@Autowired
-	RestTemplate restTemplate;
 
 	//make a mock mvc
 	private MockMvc mockMvc;
 	
 	//create a generic list of users 
 	private List<User> user;
+	
 	
 	@Before
 	public void setUp() {
@@ -78,7 +75,7 @@ public class DrinkControllerTest {
 			 * We are manually constructing a request and specifying what should happen
 			 * when such a request is made.
 			 */
-			mockMvc.perform(get("/user/all").contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
+			mockMvc.perform(get("/all").contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
 			.andExpect(status().isOk()).andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
 			.andDo(print()).andReturn();
 		}catch(Exception e) {
@@ -86,76 +83,6 @@ public class DrinkControllerTest {
 		}
 	}
 	
-	@Test
-	public void testGetUserByUsername() {
-		Mockito.when(userservice.getUserByUsername("Terry")).thenReturn(new User(3, "Terry", "admin", "Terry Terry"));
-		
-		try {
-			/*
-			 * We are manually constructing a request and specifying what should happen
-			 * when such a request is made.
-			 */
-			mockMvc.perform(get("/name/{name}").contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
-			.andExpect(status().isOk()).andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
-			.andDo(print()).andReturn();
-		}catch(Exception e) {
-			e.printStackTrace();
-		}
-	}
 	
-//	@Test
-//	public void testGetUserByUsername1() {
-//		Mockito.when(userservice.getUserByUsername("Tom")).thenReturn(new User(2, "Tom", "admin", "Tom the Cat"));
-//		
-//		try {
-//			/*
-//			 * We are manually constructing a request and specifying what should happen
-//			 * when such a request is made.
-//			 */
-//			mockMvc.perform(get("/name/{name}").contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
-//			.andExpect(status().isOk()).andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
-//			.andDo(print()).andReturn();
-//		}catch(Exception e) {
-//			e.printStackTrace();
-//		}
-//	}
-//	
-//	@Test
-//	public void testGetUserByUsername2() {
-//		Mockito.when(userservice.getUserByUsername("Jerry")).thenReturn(new User(1, "Jerry", "admin", "Jerry the Destroyer"));
-//		
-//		try {
-//			/*
-//			 * We are manually constructing a request and specifying what should happen
-//			 * when such a request is made.
-//			 */
-//			mockMvc.perform(get("/name/{name}").contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
-//			.andExpect(status().isOk()).andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
-//			.andDo(print()).andReturn();
-//		}catch(Exception e) {
-//			e.printStackTrace();
-//		}
-//	}
 	
-	@Test
-	public void testGetAllUsersNotNull() {
-		Mockito.when(userservice.getAllUsers()).thenReturn(user);
-		
-		try {
-			/*
-			 * We are manually constructing a request and specifying what should happen
-			 * when such a request is made.
-			 */
-			mockMvc.perform(get("/user/all").contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
-			.andExpect(status().isOk()).andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
-			.andDo(print()).andReturn();
-		}catch(Exception e) {
-			e.printStackTrace();
-		}
-	}
-	
-	@Test
-	public void testGetUserNotNull() {
-		Mockito.when(userservice.getUserByUsername("Tom")).thenReturn(user);
-	}
 }

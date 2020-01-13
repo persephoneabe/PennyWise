@@ -8,23 +8,13 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "usertable")
+@Table
 public class User {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name = "uid")
+	@Column(name = "userid")
 	private int userid;
-	
-	@Column(name = "uusername")
-	private String username;
-	
-	@Column(name = "upassword")
-	private String userpassword;
-
-	@Column(name = "ufullname")
-	private String fullname;
-	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -115,5 +105,14 @@ public class User {
 	public void setFullname(String fullname) {
 		this.fullname = fullname;
 	}
+
+	@Column(name = "username")
+	private String username;
+	
+	@Column(name = "userpassword")
+	private String userpassword;
+
+	@Column(name = "fullname")
+	private String fullname;
 
 }

@@ -23,6 +23,11 @@ export class DrinksService {
     return this.http.get<Drink[]>(`http://localhost:8080/drink/search/name/${term}`);
   }
 
+  //Gets a drink by name
+  getDrinkByName(name: string): Observable<Drink[]> {
+    return this.http.get<Drink[]>(`http://localhost:8080/drink/search/name/${name}`);
+  }
+
   // Gets all drinks by a specific ingredient
   getDrinksByIngredient(ingredient: string): Observable<Drink[]> {
     return this.http.get<Drink[]>(`http://localhost:8080/drink/search/ingredient/${ingredient}`);

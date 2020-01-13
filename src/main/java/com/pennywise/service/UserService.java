@@ -13,7 +13,6 @@ public class UserService {
 
 	@Autowired
 	UserRepository userRepository;
-	
 	public void insertUser(User u) {
 		this.userRepository.save(u);
 	}
