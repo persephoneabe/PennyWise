@@ -1,1 +1,9 @@
-<p>drinksearch works!</p>
+  <div id="search" class="md-form mt-0 mb-3">
+    <input id="search-box" [(ngModel)]="searchtext" type="text" class="form-control mr-2" placeholder="Search">
+    <button (click)="search()">search</button>
+  </div>
+<div class="row my-3">
+  <div *ngFor="let drink of drinks" class="col-md">
+    {{drink.strDrink}}
+  </div>
+</div>

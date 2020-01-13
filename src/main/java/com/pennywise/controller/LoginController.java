@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.pennywise.Service.UserService;
+import com.pennywise.service.UserService;
 import com.pennywise.model.User;
 
 

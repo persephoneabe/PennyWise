@@ -22,7 +22,7 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-import com.pennywise.Service.UserService;
+import com.pennywise.service.UserService;
 import com.pennywise.controller.UserController;
 import com.pennywise.model.User;
 

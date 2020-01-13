@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.pennywise.Service.UserService;
+import com.pennywise.service.UserService;
 import com.pennywise.model.Drinks;
 import com.pennywise.model.User;
 
