@@ -9,5 +9,20 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Drinks {
 
 	@JsonProperty("drinks")
-	List<DrinkValue>drinks;
+	List<DrinkValue> drinks;
+	
+	
+	public Drinks() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	
+	
+	
+	
+
+	
+	
+	
 }

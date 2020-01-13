@@ -8,13 +8,72 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table
+@Table(name="usertable")
 public class User {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name = "userid")
 	private int userid;
+
+	@Column(name = "username")
+	private String username;
+
+	@Column(name = "userpassword")
+	private String userpassword;
+
+	@Column(name = "fullname")
+	private String fullname;
+
+	//	@ManyToOne
+	//	@JoinColumn
+	//	private BankAccount bankAccount;
+
+	public User() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public User(int userid, String username, String userpassword, String fullname) {
+		super();
+		this.userid = userid;
+		this.username = username;
+		this.userpassword = userpassword;
+		this.fullname = fullname;
+	}
+
+	public int getUserid() {
+		return userid;
+	}
+
+	public void setUserid(int userid) {
+		this.userid = userid;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getUserpassword() {
+		return userpassword;
+	}
+
+	public void setUserpassword(String userpassword) {
+		this.userpassword = userpassword;
+	}
+
+	public String getfullname() {
+		return fullname;
+	}
+
+	public void setfullname(String fullname) {
+		this.fullname = fullname;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -57,62 +116,12 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [userid=" + userid + ", username=" + username + ", userpassword=" + userpassword + ", fullname="
-				+ fullname + "]";
+		return "User [userid=" + userid + ", username=" + username + ", userpassword=" + userpassword
+				+ ", fullname=" + fullname + "]";
 	}
 
-	public User() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
 
-	public User(int userid, String username, String userpassword, String fullname) {
-		super();
-		this.userid = userid;
-		this.username = username;
-		this.userpassword = userpassword;
-		this.fullname = fullname;
-	}
 
-	public int getUserid() {
-		return userid;
-	}
 
-	public void setUserid(int userid) {
-		this.userid = userid;
-	}
-
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
-	}
-
-	public String getUserpassword() {
-		return userpassword;
-	}
-
-	public void setUserpassword(String userpassword) {
-		this.userpassword = userpassword;
-	}
-
-	public String getFullname() {
-		return fullname;
-	}
-
-	public void setFullname(String fullname) {
-		this.fullname = fullname;
-	}
-
-	@Column(name = "username")
-	private String username;
-	
-	@Column(name = "userpassword")
-	private String userpassword;
-
-	@Column(name = "fullname")
-	private String fullname;
 
 }

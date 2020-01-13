@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {BehaviorSubject, config, Observable} from 'rxjs';
 import {User} from '../£models/user';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {map} from 'rxjs/operators';
 
 @Injectable({
@@ -21,7 +21,13 @@ export class AuthenticationService {
   }
 
   login(username, password) {
-    return this.http.post<any>('http://localhost:8080/login', {username, password}).pipe(map(user => {
+    const headers = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/x-www-form-urlencoded',
+      })
+    };
+    const body = `username=${username}&password=${password}`;
+    return this.http.post<any>('http://localhost:8080/login', body, headers).pipe(map(user => {
       // Storing user token in local storage to retain user session between page refreshing
       localStorage.setItem('currentUser', JSON.stringify(user));
       this.currentUserSubject.next(user);
@@ -31,7 +37,7 @@ export class AuthenticationService {
 
   logout() {
     // Removing user token from local storage to invalidate session
-    localStorage.remoeItem('currentUser');
+    localStorage.removeItem('currentUser');
     this.currentUserSubject.next(null);
   }
 
