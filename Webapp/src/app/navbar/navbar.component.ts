@@ -63,6 +63,11 @@ export class NavbarComponent implements OnInit {
       });
   }
 
+  toRegister() {
+    this.modalService.dismissAll();
+    this.router.navigateByUrl('/registration');
+  }
+
   private logout() {
     this.authenticationService.logout();
     this.alertService.sucess('You have successfully logged out');

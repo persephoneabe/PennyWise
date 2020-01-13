@@ -1,9 +1,15 @@
-  <div id="search" class="md-form mt-0 mb-3">
-    <input id="search-box" [(ngModel)]="searchtext" type="text" class="form-control mr-2" placeholder="Search">
-    <button (click)="search()">search</button>
-  </div>
-<div class="row my-3">
-  <div *ngFor="let drink of drinks" class="col-md">
-    {{drink.strDrink}}
+<div id="search" class="input-group mt-0 mb-3">
+  <input id="search-box" [(ngModel)]="this.input" type="text" class="form-control mr-2" placeholder="Search">
+  <div class="input-group-append">
+    <button class="input-group-append" (click)="search()">submit</button>
   </div>
 </div>
+<div class="container">
+  <div class="row mx-5 my-5 text-center">
+    <div *ngFor="let drink of drinks.drinks" class="col-md-6 col-lg-4 col-xl-3">
+      <img width="100%" src="{{drink.strDrinkThumb}}" alt="{{drink.strDrink}}.jpg">
+      <a routerLink="">{{drink.strDrink}}</a>
+      </div>
+  </div>
+</div>
+
