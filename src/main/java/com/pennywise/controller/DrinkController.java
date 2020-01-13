@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
-import com.pennywise.controllertest.DrinkControllerTest;
+import com.pennywise.controllertest.UserControllerTest;
 import com.pennywise.model.Drinks;
 import com.pennywise.model.Ingredient;
 
